@@ -1,31 +1,30 @@
-from openai import OpenAI
+from deepseek import DeepSeek
 import os
 
-# get api key
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# read api key
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
 
-def summarize_to_three_sentences(text: str) -> str:
-    """
-    Summarize extracted manual text into exactly 3 Korean sentences.
-    Uses a FREE model (gpt-4o-mini), so no API credit is needed.
-    """
+# DeepSeek reset client
+client = DeepSeek(api_key=DEEPSEEK_API_KEY)
 
+
+def summarize_to_three_sentences(text):
+    """
+    Summarize text into 3 sentences using DeepSeek API.
+    """
     prompt = f"""
-다음 제품 설명서 내용을 한국어로 정확하게 5문장으로 요약해줘.
-핵심 기능, 안전사항 또는 사용방법 위주로 정리해줘.
+다음 설명서를 한국어로 3줄 정도로 자연스럽게 요약해줘:
 
-설명서 내용:
 {text}
 """
 
     response = client.chat.completions.create(
-        model="gpt-4o-mini",   # 무료 모델
-        messages=[
-            {"role": "system", "content": "너는 설명서를 명확하게 요약해주는 도우미야."},
-            {"role": "user", "content": prompt}
-        ],
-        max_tokens=300
+        model="deepseek-chat",
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=200,
+        temperature=0.3,
     )
 
-    return response.choices[0].message["content"]
+    return response.choices[0].message["content"].strip()
+
 

@@ -12,7 +12,7 @@ def extract_text(image_path: str) -> str:
         str: Extracted text
     """
 
-    result = ocr_model.ocr(image_path, cls=True)
+    result = ocr_model.ocr(image_path)
 
     if not result:
         return ""

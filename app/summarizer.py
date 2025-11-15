@@ -1,30 +1,20 @@
-from deepseek import DeepSeek
+from openai import OpenAI
 import os
 
-# read api key
-DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
-
-# DeepSeek reset client
-client = DeepSeek(api_key=DEEPSEEK_API_KEY)
-
+client = OpenAI(
+    api_key=os.getenv("DEEPSEEK_API_KEY"),
+    base_url="https://api.deepseek.com"
+)
 
 def summarize_to_three_sentences(text):
-    """
-    Summarize text into 3 sentences using DeepSeek API.
-    """
-    prompt = f"""
-다음 설명서를 한국어로 3줄 정도로 자연스럽게 요약해줘:
-
-{text}
-"""
+    print("=== Step 2: Summarizing to 3 sentences ===")
 
     response = client.chat.completions.create(
         model="deepseek-chat",
-        messages=[{"role": "user", "content": prompt}],
-        max_tokens=200,
-        temperature=0.3,
+        messages=[
+            {"role": "system", "content": "Summarize the following text into exactly 3 Korean sentences."},
+            {"role": "user", "content": text}
+        ]
     )
 
-    return response.choices[0].message["content"].strip()
-
-
+    return response.choices[0].message.content

@@ -1,3 +1,10 @@
+import sys
+import os
+
+# Force add project root to Python path
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(ROOT)
+
 from app.ocr import extract_text
 from app.summarizer import summarize_to_three_sentences
 from app.tts import text_to_speech
@@ -16,6 +23,6 @@ def run_pipeline(image_path: str):
     print(f"Audio file saved as: {audio_path}")
 
 if __name__ == "__main__":
-    # 샘플 이미지 경로 (원하면 samples 폴더에 이미지 넣어서 테스트)
+    # sample image
     test_image = "samples/sample_manual.jpg"
     run_pipeline(test_image)

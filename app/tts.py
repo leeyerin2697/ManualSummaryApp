@@ -1,18 +1,16 @@
 from gtts import gTTS
+import os
+import time
 
-def text_to_speech(text: str, output_path: str = "summary.mp3") -> str:
+def generate_tts(text, output_path="output"):
     """
-    Convert Korean summary text into a spoken audio file using gTTS.
-    
-    Args:
-        text (str): The summary text to convert into speech.
-        output_path (str): Path where the audio file will be saved.
-        
-    Returns:
-        str: The path to the generated audio file.
+    Generate TTS audio using gTTS and save as mp3.
     """
+    os.makedirs(output_path, exist_ok=True)
 
-    tts = gTTS(text=text, lang="ko")
-    tts.save(output_path)
+    filename = f"{output_path}/summary_{int(time.time())}.mp3"
 
-    return output_path
+    tts = gTTS(text=text, lang='ko')
+    tts.save(filename)
+
+    return filename

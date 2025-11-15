@@ -6,5 +6,5 @@ pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tessera
 
 def extract_text(image_path):
     img = Image.open(image_path)
-    text = pytesseract.image_to_string(img, lang='eng')
+    text = pytesseract.image_to_string(img, lang='kor+eng') #read both korean and english
     return text

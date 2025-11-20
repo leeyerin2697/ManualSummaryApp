@@ -12,7 +12,7 @@ and the final output is the mp3 audio file.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 project_root/
@@ -37,7 +37,7 @@ project_root/
 
 ---
 
-## 🔧 Installation & Setup
+## Installation & Setup
 
 ### 1) Install required packages
 
@@ -58,7 +58,7 @@ If the path is different, update `pytesseract.pytesseract.tesseract_cmd` in `ocr
 
 ---
 
-## 🔑 API Key Setup
+## API Key Setup
 
 The summarization feature uses the DeepSeek API.
 Create a `.env` file in the project root and add:
@@ -83,7 +83,6 @@ python -m app.main
 
 → Uses `samples/sample_manual2.jpg` automatically.
 
----
 
 ### 2) Run with a custom image
 
@@ -136,6 +135,7 @@ When executed, the console will display:
 
 ---
 
-## 💡 Need Help?
+## Need Help?
 
 If you want additional improvements or sections added to the README, feel free to ask!
+leeyerin2697@kentech.ac.kr

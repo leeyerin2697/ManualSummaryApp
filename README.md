@@ -1,0 +1,139 @@
+# 📘 Manual Summary App
+
+This project takes an image-based user manual as input,
+1. extracts text using OCR,
+2. summarizes the key content into exactly three Korean sentences,
+3. and converts the summary into a TTS (mp3) audio file.
+
+The summarized text is used only during internal processing,
+and the final output is the mp3 audio file.
+
+---
+
+## 📁 Project Structure
+
+```
+project_root/
+│── app/
+│     ├── main.py                 # Runs the full pipeline
+│     ├── ocr.py                  # Image → Text extraction
+│     ├── summarizer.py           # Text summarization (3 sentences)
+│     ├── tts.py                  # Generate TTS audio
+│
+│── samples/
+│     ├── sample_manual.jpg    
+│     ├── sample_manual2.jpg      # Default image when no argument is given
+│
+│── output/                       # Output mp3 files are saved here
+│     ├── summary_1763193204.mp3  # Example TTS audio generated from a sample manual
+│     ├── summary_1763193573.mp3
+│ 
+│── .env                          # Stores API key (ignored by Git)
+│── .gitignore                    # Excludes .env and other sensitive files
+│── requirements.txt            
+```
+
+---
+
+## 🔧 Installation & Setup
+
+### 1) Install required packages
+
+```
+pip install -r requirements.txt
+```
+
+### 2) Install Tesseract OCR (Windows)
+
+* Download from: [https://github.com/UB-Mannheim/tesseract/wiki](https://github.com/UB-Mannheim/tesseract/wiki)
+* Verify installation path:
+
+```
+C:\\Program Files\\Tesseract-OCR\\tesseract.exe
+```
+
+If the path is different, update `pytesseract.pytesseract.tesseract_cmd` in `ocr.py`.
+
+---
+
+## 🔑 API Key Setup
+
+The summarization feature uses the DeepSeek API.
+Create a `.env` file in the project root and add:
+
+```
+DEEPSEEK_API_KEY=YOUR_KEY_HERE
+```
+
+This file is excluded by `.gitignore`, so it will **not** be uploaded to GitHub.
+
+---
+
+## How to Run
+
+The main execution file is located in `app/main.py`.
+
+### 1) Run using the default sample image
+
+```
+python app/main.py
+```
+
+→ Uses `samples/sample_manual2.jpg` automatically.
+
+---
+
+### 2) Run with a custom image
+
+```
+python app/main.py samples/your_image.jpg
+```
+
+Example:
+
+```
+python app/main.py samples/manual3.jpg
+```
+
+The path you provide will be passed as `sys.argv[1]`.
+
+---
+
+## Pipeline Flow
+
+1. **OCR — `extract_text()`**
+
+   * Extracts text from the image using Tesseract.
+
+2. **Summarization — `summarize_to_three_sentences()`**
+
+   * Uses DeepSeek LLM to generate **exactly 3 Korean sentences**.
+
+3. **TTS — `generate_tts()`**
+
+   * Converts the summary into an MP3 file using gTTS.
+   * Saved in the `output/` directory.
+
+---
+
+## Output Example
+
+When executed, the console will display:
+
+* Extracted raw text
+* Final 3-sentence summary in Korean
+* Generated MP3 file
+
+---
+
+## Notes
+
+* `.env` must exist in the project root.
+* Any relative or absolute image path can be used.
+* OCR will fail if the Tesseract path is incorrect.
+
+---
+
+## 💡 Need Help?
+
+If you want additional improvements or sections added to the README, feel free to ask!

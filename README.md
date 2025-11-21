@@ -16,23 +16,22 @@ and the final output is the mp3 audio file.
 
 ```
 project_root/
+│
 │── app/
+│     ├── __init__.py
 │     ├── main.py                 # Runs the full pipeline
 │     ├── ocr.py                  # Image → Text extraction
-│     ├── summarizer.py           # Text summarization (3 sentences)
+│     ├── summarizer.py           # Text summarization
 │     ├── tts.py                  # Generate TTS audio
 │
 │── samples/
 │     ├── sample_manual.jpg    
 │     ├── sample_manual2.jpg      # Default image when no argument is given
 │
-│── output/                       # Output mp3 files are saved here
-│     ├── summary_1763193204.mp3  # Example TTS audio generated from a sample manual
-│     ├── summary_1763193573.mp3
-│ 
 │── .env                          # Stores API key (ignored by Git)
-│── .gitignore                    # Excludes .env and other sensitive files
-│── requirements.txt            
+│── .gitignore                    # Excludes .env, output/, venv/, etc.
+│── requirements.txt
+│── README.md                             
 ```
 
 ---

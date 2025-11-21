@@ -12,20 +12,21 @@ client = OpenAI(
     base_url="https://api.deepseek.com"
 )
 
-def summarize_to_three_sentences(text):
+def summarize_sentences_clear(text):
     """
-    Summarize text into exactly three sentences in Korean using system + user messages.
+    Summarize text into Korean using system + user messages.
     """
 
     response = client.chat.completions.create(
         model="deepseek-chat",
         messages=[
             {
-                "role": "system",
+                "role": "system",               #ask to deepseek
                 "content": (
                     "You are a summarization assistant. "
-                    "Summarize the given content into exactly 3 Korean sentences. "
-                    "Do not add explanations—output only the summary."
+                    "Provide a Korean summary of the given content. "
+                    "Focus on key points, essential information, and important cautions. "
+                    "Keep the summary brief—limit it to 5 short sentences. "
                 )
             },
             {

@@ -1,7 +1,8 @@
 import sys
 from app.ocr import extract_text
-from app.summarizer import summarize_to_three_sentences
+from app.summarizer import summarize_sentences_clear
 from app.tts import generate_tts
+
 
 def run_pipeline(image_path):
     print("=== Step 1: Extracting text with OCR ===")
@@ -9,8 +10,8 @@ def run_pipeline(image_path):
     print(raw_text)
     print()
 
-    print("=== Step 2: Summarizing to 3 sentences ===")
-    summary = summarize_to_three_sentences(raw_text)
+    print("=== Step 2: Summarizing ===")
+    summary = summarize_sentences_clear(raw_text)
     print(summary)
     print()
 

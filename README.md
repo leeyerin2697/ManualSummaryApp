@@ -2,6 +2,8 @@
 
 ![WindowsPowerShell2025-11-2106-13-08-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/d0cb4952-8b00-4879-92f3-680adf71f937)
 
+full video: https://youtu.be/SUHL4aNiLAk
+
 This project takes an image-based user manual as input,
 1. extracts text using OCR,
 2. summarizes the key content into exactly three Korean sentences,

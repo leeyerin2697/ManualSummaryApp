@@ -133,7 +133,7 @@ You must run the program from the project root folder.
 When executed, the console will display:
 
 * Extracted raw text
-* Final 3-sentence summary in Korean
+* Final summary in Korean
 * Generated MP3 file
 
 ---

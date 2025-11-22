@@ -33,9 +33,21 @@ project_root/
 │── requirements.txt
 │── README.md                             
 ```
+---
+## Environment
+
+This project was developed and tested in the following environment:
+
+- Python 3.10 (tested on 3.10.19)
+- Operating System: Windows 10/11
+- Required Libraries:
+  - pytesseract
+  - Pillow
+  - openai
+  - python-dotenv
+  - gTTS
 
 ---
-
 ## Installation & Setup
 
 ### 1) Install required packages

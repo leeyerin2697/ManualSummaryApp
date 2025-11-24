@@ -6,7 +6,7 @@ full video: https://youtu.be/SUHL4aNiLAk
 
 This project takes an image-based user manual as input,
 1. extracts text using OCR,
-2. summarizes the key content into exactly three Korean sentences,
+2. summarizes the key content into Korean sentences,
 3. and converts the summary into a TTS (mp3) audio file.
 
 The summarized text is used only during internal processing,

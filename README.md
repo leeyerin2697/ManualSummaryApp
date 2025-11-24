@@ -119,9 +119,9 @@ You must run the program from the project root folder.
 
    * Extracts text from the image using Tesseract.
 
-2. **Summarization — `summarize_to_three_sentences()`**
+2. **Summarization — `summarize_sentences_clear()`**
 
-   * Uses DeepSeek LLM to generate **exactly 3 Korean sentences**.
+   * Uses DeepSeek LLM to generate **summarized Korean sentences**.
 
 3. **TTS — `generate_tts()`**
 

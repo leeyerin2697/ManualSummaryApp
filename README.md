@@ -1,8 +1,11 @@
-# 📘 Manual Summary App
+# 📘 [SumPeak] Manual Summary App
 
 ![WindowsPowerShell2025-11-2106-13-08-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/d0cb4952-8b00-4879-92f3-680adf71f937)
 
 full video: https://youtu.be/SUHL4aNiLAk
+
+SumPeak (summary+speak) is a lightweight OCR–summarization–TTS pipeline that automatically extracts key information from image-based user manuals, summarizes the content, and converts it into an audio file.
+Even when a manual contains tiny text or long paragraphs that are difficult to read, the app processes the manual image and performs the following steps automatically:
 
 This project takes an image-based user manual as input,
 1. extracts text using OCR,
